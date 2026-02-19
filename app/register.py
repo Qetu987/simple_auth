@@ -6,7 +6,7 @@ from app.tools import (
 from app.data_recoder import create_profile
 
 
-def register():
+def register() -> dict:
     username = input("Введіть ім`я користувача: ").lower()
     password = input("Введіть пароль: ")
     if check_password(password):
