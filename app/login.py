@@ -1,6 +1,6 @@
 from app.validators import check_username_len
 
-def auth():
+def auth() -> dict:
     username = input("Введіть ім`я користувача: ").lower()
     password = input("Введіть пароль: ")
 
