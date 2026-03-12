@@ -3,7 +3,7 @@ from app.tools import (
     check_password, 
     check_username_exist
 )
-from app.data_recoder import create_profile
+from app.data_recoder import create_profile, create_profile_with_xls
 
 
 def register() -> dict:
@@ -12,7 +12,7 @@ def register() -> dict:
     if check_password(password):
         if check_username_len(username):
             if check_username_exist(username):
-                create_profile(username, password)
+                create_profile_with_xls(username, password)
                 return {'type':'Done', 'text':'User has been registered'}
             else:
                 return {'type':'Error', 'text':'Username already exist.'}

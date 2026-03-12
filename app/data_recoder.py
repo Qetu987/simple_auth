@@ -13,4 +13,8 @@ def create_profile_with_xls(username:str, password:str) -> None:
     wb = xlwt.Workbook()
     ws = wb.add_sheet('User')
 
-    wb.save(f'{username}.xls')
+    ws.write(0, 0, username)
+    ws.write(0, 1, password)
+    ws.write(0, 2, datetime.now())
+
+    wb.save(f'db/{username}.xls')
