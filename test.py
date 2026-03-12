@@ -1,25 +1,18 @@
-import decimal
-import fractions
+import xlrd
+import xlwt
+from datetime import datetime
 
-'''
-[-] str = 'abcd'
-[+] list = [1, 3, 4, 'a', 'b', 'apple']             => [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]       => list[0] = 1
-[-] tupple = (1, 2, 3, 4, 5, 'a', 'b', 'apple')     => ((1, 2, 3, 4), [1, 2, 3, 4], [1, 2, 3, 4])
-[+] dict = {'username': 'admin', 'password': 'Admin123', 'marks': [1, 2, 3, 4]}                         => dict['username'] = 'admin'
-[+] set = {1, 2, 3, 4, 5,}
-[-] frozenset = {1, 2, 3, 4, 5,}
+style0 = xlwt.easyxf('font: name Times New Roman, color-index red, bold on',
+    num_format_str='#,##0.00')
+style1 = xlwt.easyxf(num_format_str='D-MMM-YY')
 
+wb = xlwt.Workbook()
+ws = wb.add_sheet('A Test Sheet')
 
-[-] int = 10
-[-] int (l)     123456789l
-[-] float = 20.6
-[-] decimal.Decimal = 3.54
-[-] fractions.Fraction(1, 2)
-[-] bool = 0, 1
+ws.write(0, 0, 1234.56, style0)
+ws.write(1, 0, datetime.now(), style1)
+ws.write(2, 0, 1)
+ws.write(2, 1, 1)
+ws.write(2, 2, xlwt.Formula("A3+B3"))
 
-
-class
-file
-def
-'''
-
+wb.save('example.xls')
